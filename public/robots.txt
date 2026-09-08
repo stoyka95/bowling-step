@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bowling-step-demo.vercel.app/sitemap.xml

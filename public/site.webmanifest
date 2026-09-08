@@ -1,0 +1,14 @@
+{
+  "name": "Bowling bar Step",
+  "short_name": "Bowling Step",
+  "description": "Bowling bar se 3 drahami v Praze 9 – Libni, kousek od O2 areny.",
+  "lang": "cs",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FBF9F4",
+  "theme_color": "#0F2B22",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

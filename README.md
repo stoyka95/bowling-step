@@ -19,7 +19,7 @@ Jednostránkový landing s kotvami:
 | Pravidla | `#pravidla` | strike / double / triple / spare jako karty místo PDF |
 | Galerie | `#galerie` | masonry grid s lightboxem (klávesnice: ←, →, Esc) |
 | Rezervace | `#rezervace` | **demo** 5krokový rezervační wizard |
-| Kontakt | `#kontakt` | adresa, telefon, e-mail, otevírací doba, doprava, mapa |
+| Kontakt | `#kontakt` | adresa, telefon, e-mail, otevírací doba s živým stavem otevřeno/zavřeno, doprava, mapa |
 | Patička | — | kontakt, odkazy, Wellness hotel Step |
 
 ## Stack
@@ -127,6 +127,9 @@ python3 tools/generate-placeholders.py   # spouštět z kořene repa
 - viditelné focus stavy, skip-link, ARIA popisky u wizardu a lightboxu, `role="progressbar"`
 - kompletní ovládání klávesnicí (menu, wizard, galerie)
 - `prefers-reduced-motion` vypíná všechny animace i parallax
+- přechody mezi světlými a tmavými sekcemi jsou řešené překryvem uvnitř sekce
+  (třídy `.fade-top` / `.fade-bottom`), ne samostatným pruhem — navazují přesně
+  na diagonální gradient sekce a nevzniká hrana
 - žádný render-blocking JS (`defer`), preload kritických fontů a hero vizuálu
 - pevné rozměry obrázků → prakticky nulový CLS
 

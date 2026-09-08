@@ -92,12 +92,26 @@
     }, { passive: true });
   }
 
-  /* ---------- Dnešní den v otevírací době ---------- */
-  var today = new Date().getDay();
-  var todayEl = document.querySelector('#hours li[data-day="' + today + '"]');
-  if (todayEl) {
-    todayEl.classList.add('is-today');
-    todayEl.firstElementChild.textContent += ' (dnes)';
+  /* ---------- Živý stav otevřeno / zavřeno (denně 14:00–01:00) ---------- */
+  function isOpenNow(date) {
+    var h = date.getHours();
+    return h >= 14 || h < 1;
+  }
+  var openNow = isOpenNow(new Date());
+
+  var status = document.getElementById('status');
+  if (status) {
+    document.getElementById('status-text').textContent = openNow
+      ? 'Právě otevřeno — zavíráme v 01:00'
+      : 'Právě zavřeno — otevíráme ve 14:00';
+    status.classList.toggle('status--closed', !openNow);
+    status.hidden = false;
+  }
+
+  var badgeText = document.getElementById('hero-badge-text');
+  if (badgeText) {
+    badgeText.textContent = openNow ? 'Právě otevřeno do 01:00' : 'Dnes otevíráme ve 14:00';
+    document.getElementById('hero-badge').classList.toggle('is-closed', !openNow);
   }
   var rok = document.getElementById('rok');
   if (rok) rok.textContent = String(new Date().getFullYear());

@@ -455,7 +455,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .lane-row__label {
   position: sticky; left: 0; z-index: 2; display: flex; align-items: center; padding: 0 1rem;
-  font-weight: 700; font-size: .92rem; background: var(--color-bg-alt);
+  font-weight: 700; font-size: .92rem; white-space: nowrap; background: var(--color-bg-alt);
   border-right: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider);
 }
 .time-slot {
@@ -470,8 +470,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .time-slot__btn:hover:not(:disabled) { border-color: var(--color-gold); transform: translateY(-2px); box-shadow: var(--shadow-card); }
 .time-slot__btn:focus-visible { outline: 3px solid rgba(201, 162, 75, .55); outline-offset: 2px; }
-.time-slot__price { font-size: .82rem; }
-.time-slot__note { font-size: .66rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+.time-slot__price { font-size: .82rem; white-space: nowrap; }
+.time-slot__note { font-size: .66rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; }
 
 .time-slot--selected .time-slot__btn { background: var(--color-green-dark); border-color: var(--color-green-dark); color: #FFF; box-shadow: var(--shadow-lift); }
 .time-slot--full .time-slot__btn { background: var(--color-bg-sage); border-color: var(--color-divider); color: var(--color-text-muted); cursor: not-allowed; }
@@ -604,6 +604,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   transition: opacity .35s var(--ease-out), transform .35s var(--ease-out), visibility .35s;
 }
 .floating-cta.is-visible { opacity: 1; visibility: visible; transform: none; }
+.demo-flag { transition: opacity .3s var(--ease-out), visibility .3s; }
 
 /* ---------- Upozornění na ukázkový web ---------- */
 .demo-flag { position: fixed; z-index: 95; left: 1rem; right: 1rem; bottom: 5.25rem; pointer-events: none; }
@@ -697,8 +698,16 @@ ul { margin: 0; padding: 0; list-style: none; }
   .services { grid-template-columns: repeat(2, 1fr); }
   .pricing { grid-template-columns: repeat(2, 1fr); }
   .rules { grid-template-columns: repeat(4, 1fr); }
-  .booking-app { grid-template-columns: 1fr 340px; gap: 2.5rem; }
+  .booking-app { grid-template-columns: minmax(0, 1fr) 316px; gap: 1.75rem; }
   .booking-summary { position: sticky; top: 100px; }
+  /* celý provozní den 14:00–00:00 se vejde bez vodorovného scrollu */
+  .booking-grid { grid-template-columns: 78px repeat(11, minmax(0, 1fr)); min-width: 0; }
+  .booking-grid__hour { font-size: .7rem; padding: .7rem .15rem; }
+  .lane-row__label { padding-inline: .6rem; font-size: .82rem; }
+  .time-slot { padding: .22rem; min-height: 58px; }
+  .time-slot__btn { min-height: 50px; padding: .2rem; }
+  .time-slot__price { font-size: .75rem; }
+  .time-slot__note { font-size: .56rem; letter-spacing: .02em; }
   .contact { grid-template-columns: 1fr 1fr; gap: 1.25rem; align-items: stretch; }
   .contact__col { gap: 1.25rem; }
   .contact__col--map { align-content: stretch; }
@@ -724,8 +733,22 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* ---------- Doplňky ---------- */
 fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
 
-/* Mobil: sticky souhrn u spodní hrany obrazovky */
+/* Mobil: sticky souhrn u spodní hrany obrazovky — kompaktní, aby nezakrýval mřížku */
 @media (max-width: 899px) {
-  .booking-summary { position: sticky; bottom: 0; z-index: 20; border-radius: var(--radius-lg) var(--radius-lg) 0 0; box-shadow: 0 -12px 30px rgba(15, 43, 34, .18); }
-  .booking-summary__lanes { max-height: 26vh; overflow-y: auto; }
+  .booking-summary {
+    position: sticky; bottom: 0; z-index: 20; padding: .9rem 1.1rem 1.1rem; gap: .55rem;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    box-shadow: 0 -12px 30px rgba(15, 43, 34, .18);
+  }
+  .booking-summary h3 { font-size: 1.05rem; }
+  .booking-summary__date { font-size: .8rem; }
+  .booking-summary__empty { font-size: .84rem; }
+  .booking-summary__lanes { max-height: 24vh; overflow-y: auto; }
+  .booking-summary__total { padding-top: .6rem; }
+  .booking-summary__total b { font-size: 1.5rem; }
+
+  /* V rezervační sekci si spodní hranu drží souhrn — plovoucí CTA (míří na
+     tutéž sekci) i lišta o ukázkovém webu by ho jen překrývaly. */
+  body.is-booking-view .floating-cta { opacity: 0; visibility: hidden; pointer-events: none; }
+  body.is-booking-view .demo-flag { opacity: 0; visibility: hidden; pointer-events: none; }
 }

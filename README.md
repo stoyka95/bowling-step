@@ -18,7 +18,7 @@ Jednostránkový landing s kotvami:
 | Ceník | `#cenik` | dvě cenová pásma + poznámka o orientačních cenách |
 | Pravidla | `#pravidla` | strike / double / triple / spare jako karty místo PDF |
 | Galerie | `#galerie` | masonry grid s lightboxem (klávesnice: ←, →, Esc) |
-| Rezervace | `#rezervace` | **demo** rezervace — mřížka dráha × hodina s mock dostupností |
+| Rezervace | `#rezervace` | **demo** rezervace — mřížka dráha × hodina s mock dostupností (renderuje se až při přiblížení k sekci) |
 | Kontakt | `#kontakt` | adresa, telefon, e-mail, otevírací doba s živým stavem otevřeno/zavřeno, doprava, mapa (Google Maps embed) |
 | Patička | — | kontakt, odkazy, Wellness hotel Step |
 
@@ -36,9 +36,25 @@ Pro rozsah tohoto webu je to nejrychlejší možná varianta (žádný framework
 - **Obrázky**: vektorové SVG ilustrace (viz níže), `loading="lazy"`, pevné `width`/`height` kvůli CLS
 - **Hosting**: Vercel (statický output, konfigurace v `vercel.json`)
 
+## Build
+
+Jediný build krok je `tools/build.py`. **Pouštět po každé úpravě
+`public/css/style.css` nebo `public/js/*.js`:**
+
+```bash
+python3 tools/build.py
+```
+
+Dělá dvě věci:
+
+1. **Cache busting** — doplní `?v=<hash obsahu>` k odkazům na CSS a JS.
+   Bez toho by se po nasazení nová verze neprojevila: HTML se revaliduje,
+   ale assety mají v `vercel.json` roční `immutable` cache.
+2. **Kritické CSS** — vloží ho inline do `<head>`, zbytek se načítá asynchronně.
+
 ## Spuštění
 
-Není co buildit — stačí naservírovat složku `public/`:
+Po buildu stačí naservírovat složku `public/`:
 
 ```bash
 # libovolný statický server, např.
@@ -76,6 +92,7 @@ public/
   sitemap.xml
   site.webmanifest
 docs/                   # zadání, content audit, design a barevný brief
+tools/build.py          # cache busting + inline kritického CSS
 tools/generate-placeholders.py   # generátor SVG placeholderů
 vercel.json
 ```

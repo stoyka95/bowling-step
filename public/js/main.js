@@ -116,6 +116,14 @@
   var rok = document.getElementById('rok');
   if (rok) rok.textContent = String(new Date().getFullYear());
 
+  /* ---------- V rezervační sekci uvolnit spodní hranu sticky souhrnu ---------- */
+  var bookingSection = document.getElementById('rezervace');
+  if (bookingSection && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      document.body.classList.toggle('is-booking-view', entries[0].isIntersecting);
+    }, { rootMargin: '-30% 0px -20% 0px' }).observe(bookingSection);
+  }
+
   /* ---------- Upozornění na ukázkový web (minimalizovatelné) ---------- */
   var demoFlag = document.getElementById('demo-flag');
   if (demoFlag) {

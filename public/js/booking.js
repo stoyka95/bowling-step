@@ -29,6 +29,7 @@
       { id: 2, name: 'Dráha 2' },
       { id: 3, name: 'Dráha 3' }
     ],
+    minHoursForToday: 4, // pod tolik zbývajících hodin se rovnou nabídne další den
     priceDay: 360,       // Kč / hod / dráha, 14:00–17:00
     priceEvening: 450,   // Kč / hod / dráha, 17:00–00:00
     eveningFrom: 17,
@@ -88,8 +89,21 @@
   var dateList = [];
   for (var i = 0; i < CONFIG.daysAhead; i++) dateList.push(iso(addDays(today, i)));
 
+  // Výchozí den: dnešek, ale jen dokud na něj zbývá co rezervovat.
+  // Večer už je většina slotů v minulosti, takže se rovnou nabídne další den
+  // (dnešek zůstává na jedno kliknutí vlevo).
+  function bookableHoursLeft(dateStr) {
+    var count = 0;
+    for (var i = 0; i < HOURS.length; i++) if (!isPastSlot(dateStr, HOURS[i])) count++;
+    return count;
+  }
+  var defaultDate = dateList[0];
+  if (dateList.length > 1 && bookableHoursLeft(dateList[0]) < CONFIG.minHoursForToday) {
+    defaultDate = dateList[1];
+  }
+
   var state = {
-    date: dateList[0],
+    date: defaultDate,
     selected: {} // klíč "laneId-hour" -> { laneId, hour }
   };
 
@@ -385,8 +399,25 @@
     window.setTimeout(function () { layer.remove(); }, 3600);
   }
 
-  /* ---------- Init ---------- */
-  renderBookingCalendar();
-  renderBookingGrid();
-  renderBookingSummary();
+  /* ---------- Init ----------
+     Rezervační sekce je hluboko pod foldem, proto se mřížka (3 × 11 tlačítek)
+     a kalendář staví až když se k nim návštěvník blíží. Šetří to hlavní vlákno
+     při načtení stránky. Bez IntersectionObserveru se vykreslí rovnou. */
+  function initBooking() {
+    renderBookingCalendar();
+    renderBookingGrid();
+    renderBookingSummary();
+  }
+
+  var section = document.getElementById('rezervace');
+  if (section && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      io.disconnect();
+      initBooking();
+    }, { rootMargin: '600px 0px' });
+    io.observe(section);
+  } else {
+    initBooking();
+  }
 })();

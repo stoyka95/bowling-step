@@ -18,8 +18,8 @@ Jednostránkový landing s kotvami:
 | Ceník | `#cenik` | dvě cenová pásma + poznámka o orientačních cenách |
 | Pravidla | `#pravidla` | strike / double / triple / spare jako karty místo PDF |
 | Galerie | `#galerie` | masonry grid s lightboxem (klávesnice: ←, →, Esc) |
-| Rezervace | `#rezervace` | **demo** 5krokový rezervační wizard |
-| Kontakt | `#kontakt` | adresa, telefon, e-mail, otevírací doba s živým stavem otevřeno/zavřeno, doprava, mapa |
+| Rezervace | `#rezervace` | **demo** rezervace — mřížka dráha × hodina s mock dostupností |
+| Kontakt | `#kontakt` | adresa, telefon, e-mail, otevírací doba s živým stavem otevřeno/zavřeno, doprava, mapa (Google Maps embed) |
 | Patička | — | kontakt, odkazy, Wellness hotel Step |
 
 ## Stack
@@ -79,6 +79,21 @@ docs/                   # zadání, content audit, design a barevný brief
 tools/generate-placeholders.py   # generátor SVG placeholderů
 vercel.json
 ```
+
+## Upozornění na ukázkový web
+
+V pravém dolním rohu je trvalá lišta `.demo-flag`, která návštěvníkovi říká, že jde
+o nezávazný návrh, ne o oficiální web provozovatele. Jde ji minimalizovat na malý
+štítek „Demo"; volba se pamatuje v `localStorage` (`bs-demo-flag`). Na mobilu se
+minimalizovaný štítek posadí vlevo od plovoucího CTA, aby se nepřekrývaly.
+
+## Mapa
+
+Kontakt používá bezklíčový Google Maps embed (`google.com/maps?q=…&output=embed`)
+s adresou Malletova 1141/4, 190 00 Praha 9 – Libeň. Pro ostré nasazení doporučuji
+přejít na oficiální **Maps Embed API** s vlastním API klíčem — bezklíčová varianta
+není Googlem garantovaná. Pod mapou jsou navíc odkazy do Mapy.cz a Google Maps,
+takže sekce funguje, i kdyby se iframe nenačetl.
 
 ## Demo rezervace — jak to funguje
 

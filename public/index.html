@@ -33,7 +33,7 @@
 <link rel="preload" as="image" href="/img/placeholder/hero-lanes.svg" fetchpriority="high">
 
 <!-- Kritické CSS inline (viz tools/build-critical.py), zbytek stylů se načítá asynchronně. -->
-<style>@font-face{font-family:'Fraunces';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/fraunces-600.woff2) format('woff2');}@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/inter-400.woff2) format('woff2');}@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/inter-600.woff2) format('woff2');}:root{--color-bg:#FBF9F4;--color-bg-alt:#FFFFFF;--color-bg-sage:#E4EDE6;--color-text:#0F2B22;--color-text-muted:#5B6B62;--color-green:#1F5D3C;--color-green-dark:#0F2B22;--color-gold:#C9A24B;--color-gold-soft:#E8D9B5;--color-gold-deep:#9C7A2E;--color-divider:#D9D2C2;--color-success:#2E7D4F;--color-error:#B3453A;--shadow-card:0 8px 24px rgba(15,43,34,.12);--shadow-lift:0 18px 44px rgba(15,43,34,.18);--shadow-gold:0 10px 30px rgba(201,162,75,.32);--font-display:'Fraunces','Iowan Old Style',Georgia,'Times New Roman',serif;--font-body:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;--radius-sm:10px;--radius:18px;--radius-lg:28px;--container:1200px;--gutter:clamp(1.25rem,4vw,3rem);--section-y:clamp(4.5rem,9vw,8.5rem);--ease-out:cubic-bezier(.22,1,.36,1);}*,*::before,*::after{ box-sizing:border-box}html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; scroll-padding-top:86px}body{margin:0;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}img,svg,picture{ display:block; max-width:100%; height:auto}a{ color:inherit; text-decoration:none}button,input,select,textarea{ font:inherit; color:inherit}h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; line-height:1.06; letter-spacing:-.015em; margin:0 0 .5em}h1{ font-size:clamp(2.05rem,4vw,3.5rem)}h2{ font-size:clamp(2rem,4.6vw,3.4rem)}h3{ font-size:clamp(1.25rem,2vw,1.6rem)}p{ margin:0 0 1.1em}ul{ margin:0; padding:0; list-style:none}:focus-visible{outline:3px solid rgba(201,162,75,.55);outline-offset:3px;border-radius:6px;}.container{ width:100%; max-width:var(--container); margin-inline:auto; padding-inline:var(--gutter)}.sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px;overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;}.skip-link{position:absolute; left:1rem; top:-100px; z-index:999;background:var(--color-gold); color:var(--color-green-dark);padding:.7rem 1.1rem; border-radius:0 0 var(--radius-sm) var(--radius-sm); font-weight:600;transition:top .2s var(--ease-out);}.skip-link:focus{ top:0}.eyebrow{display:inline-flex; align-items:center; gap:.6rem;font-size:.74rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase;color:var(--color-gold-deep); margin-bottom:1.1rem;}.eyebrow::before{ content:""; width:28px; height:1px; background:var(--color-gold)}.on-dark .eyebrow{ color:var(--color-gold)}.lead{ font-size:clamp(1.05rem,1.6vw,1.28rem); color:var(--color-text-muted); max-width:62ch}.on-dark .lead{ color:rgba(242,239,230,.78)}.section-head{ max-width:720px; margin-bottom:clamp(2.5rem,5vw,4rem)}.gold{ color:var(--color-gold-deep)}.on-dark .gold{ color:var(--color-gold)}.section{ padding-block:var(--section-y); position:relative}.section--sage{ background:var(--color-bg-sage)}.section--dark{background:linear-gradient(135deg,#0F2B22 0%,#1F5D3C 60%,#2A4A38 100%);color:#F2EFE6;}.section--dark h2,.section--dark h3{ color:#FFFFFF}.on-dark{ color:#F2EFE6}.fade-top::before,.fade-bottom::after{content:"";position:absolute;left:0; right:0;height:clamp(44px,5.5vw,88px);pointer-events:none;z-index:0;}.fade-top::before{top:0;background:linear-gradient(180deg,var(--color-bg) 0%,rgba(251,249,244,.72) 22%,rgba(251,249,244,.28) 52%,rgba(251,249,244,.06) 78%,rgba(251,249,244,0) 100%);}.fade-bottom::after{bottom:0;background:linear-gradient(180deg,rgba(251,249,244,0) 0%,rgba(251,249,244,.06) 22%,rgba(251,249,244,.28) 48%,rgba(251,249,244,.72) 78%,var(--color-bg) 100%);}.section--dark > .container,.hero > .container{ position:relative; z-index:1}.hero.fade-bottom::after{ z-index:0}.btn{--btn-bg:var(--color-gold);--btn-fg:var(--color-green-dark);display:inline-flex; align-items:center; justify-content:center; gap:.6rem;min-height:52px; padding:.85rem 1.6rem;background:var(--btn-bg); color:var(--btn-fg);border:1px solid transparent; border-radius:999px;font-weight:600; font-size:1rem; letter-spacing:.01em;cursor:pointer; text-align:center;box-shadow:var(--shadow-gold);transition:transform .3s var(--ease-out),box-shadow .3s var(--ease-out),background .3s var(--ease-out),color .2s;}.btn:hover{ transform:translateY(-2px) scale(1.03); box-shadow:0 16px 38px rgba(201,162,75,.42); background:linear-gradient(90deg,#C9A24B 0%,#E8D9B5 100%)}.btn:active{ transform:translateY(0) scale(.99)}.btn--ghost{--btn-bg:transparent; --btn-fg:currentColor;border-color:currentColor; box-shadow:none; opacity:.92;}.btn--ghost:hover{ background:rgba(201,162,75,.12); box-shadow:none; transform:translateY(-2px)}.btn--outline-dark{ --btn-bg:transparent; --btn-fg:var(--color-green-dark); border-color:rgba(15,43,34,.25); box-shadow:none}.btn--outline-dark:hover{ background:rgba(15,43,34,.06); box-shadow:none}.btn--sm{ min-height:44px; padding:.6rem 1.2rem; font-size:.92rem}.btn[disabled]{ opacity:.45; cursor:not-allowed; transform:none; box-shadow:none}.site-header{position:fixed; inset:0 0 auto 0; z-index:100;transition:background .4s var(--ease-out),box-shadow .4s var(--ease-out),border-color .4s;border-bottom:1px solid transparent;}.site-header.is-stuck{background:rgba(251,249,244,.82);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);border-bottom-color:var(--color-divider);box-shadow:0 6px 24px rgba(15,43,34,.07);}.nav{ display:flex; align-items:center; justify-content:space-between; gap:1.5rem; min-height:76px}.brand{ display:flex; align-items:center; gap:.7rem; font-family:var(--font-display); font-size:1.15rem; color:#FFF; transition:color .4s}.is-stuck .brand{ color:var(--color-green-dark)}.brand__mark{ width:34px; height:34px; flex:none}.brand__sub{ display:block; font-family:var(--font-body); font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; opacity:.7}.nav__list{ display:none; gap:clamp(.4rem,1.4vw,1.35rem); align-items:center}.nav__link{position:relative; padding:.45rem .2rem; font-size:.95rem; font-weight:500;color:rgba(255,255,255,.86); transition:color .3s;}.is-stuck .nav__link{ color:var(--color-text)}.nav__link::after{content:""; position:absolute; left:0; right:0; bottom:0; height:2px;background:var(--color-gold); transform:scaleX(0); transform-origin:left;transition:transform .35s var(--ease-out);}.nav__link:hover::after,.nav__link.is-active::after{ transform:scaleX(1)}.nav__actions{ display:flex; align-items:center; gap:.6rem}.nav__cta{ display:none}.nav__toggle{display:inline-flex; flex-direction:column; justify-content:center; gap:5px;width:46px; height:46px; padding:0 11px; border:0; border-radius:12px;background:rgba(255,255,255,.12); cursor:pointer;}.is-stuck .nav__toggle{ background:rgba(15,43,34,.07)}.nav__toggle span{ display:block; height:2px; background:#FFF; border-radius:2px; transition:transform .3s var(--ease-out),opacity .2s}.is-stuck .nav__toggle span{ background:var(--color-green-dark)}.nav__toggle[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg)}.nav__toggle[aria-expanded="true"] span:nth-child(2){ opacity:0}.nav__toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg)}.mobile-menu{position:fixed; inset:0; z-index:99;background:linear-gradient(160deg,#0F2B22 0%,#1F5D3C 100%);display:grid; align-content:center; gap:.25rem;padding:6rem var(--gutter) 3rem;opacity:0; visibility:hidden; transform:translateY(-12px);transition:opacity .35s var(--ease-out),transform .35s var(--ease-out),visibility .35s;}.mobile-menu.is-open{ opacity:1; visibility:visible; transform:none}.mobile-menu a{font-family:var(--font-display); font-size:clamp(1.6rem,7vw,2.4rem); color:#F2EFE6;padding:.35rem 0; border-bottom:1px solid rgba(242,239,230,.12);}.mobile-menu a:last-of-type{ border-bottom:0}.mobile-menu .btn{ margin-top:1.5rem}.hero{position:relative; min-height:100svh; display:flex; align-items:center;padding:6.5rem 0 4.5rem; overflow:hidden; isolation:isolate;background:linear-gradient(135deg,#0F2B22 0%,#1F5D3C 60%,#2A4A38 100%);color:#F2EFE6;}.hero__glow{position:absolute; z-index:-2; inset:auto -20% -30% auto; width:min(75vw,900px); aspect-ratio:1;background:radial-gradient(circle at 50% 50%,rgba(201,162,75,.30) 0%,rgba(201,162,75,.07) 45%,transparent 70%);pointer-events:none;}.hero__grain{position:absolute; inset:0; z-index:-1; pointer-events:none; opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");}.hero__inner{ display:grid; gap:clamp(2.5rem,5vw,4rem); align-items:center}.hero__claim{ margin-bottom:1.15rem; max-width:17ch; line-height:1.02; letter-spacing:-.025em}.hero__claim em{ font-style:normal; color:var(--color-gold); display:block}.hero__lead{ font-size:clamp(1rem,1.1vw,1.08rem); line-height:1.6; margin-bottom:1.9rem; max-width:45ch}.hero__actions{ display:flex; flex-wrap:wrap; gap:.7rem; margin-bottom:2.2rem}.hero__stats{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; max-width:470px}.hero__stat{ border-top:1px solid rgba(232,217,181,.28); padding-top:.9rem}.hero__stat b{ display:block; font-family:var(--font-display); font-size:clamp(1.5rem,2.6vw,2rem); color:var(--color-gold); line-height:1}.hero__stat span{ font-size:.78rem; color:rgba(242,239,230,.72)}.hero__visual{ position:relative}.hero__visual img{ border-radius:var(--radius-lg); box-shadow:0 40px 80px rgba(0,0,0,.45)}.hero__badge{position:absolute; left:-8px; bottom:-18px;background:rgba(251,249,244,.96); color:var(--color-green-dark);border-radius:var(--radius); padding:.85rem 1.15rem; box-shadow:var(--shadow-card);display:flex; align-items:center; gap:.7rem; font-size:.88rem; font-weight:600;}.hero__badge.is-closed .dot{ background:var(--color-gold-deep); animation:none}.hero__badge .dot{ width:9px; height:9px; border-radius:50%; background:var(--color-success); box-shadow:0 0 0 0 rgba(46,125,79,.6); animation:pulse 2.6s infinite}@keyframes pulse{ 70%{ box-shadow:0 0 0 12px rgba(46,125,79,0)} 100%{ box-shadow:0 0 0 0 rgba(46,125,79,0)} }.hero__scroll{position:absolute; left:50%; bottom:1.6rem; transform:translateX(-50%);font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(242,239,230,.6);display:none; align-items:center; gap:.55rem;}.hero__scroll::after{ content:""; width:1px; height:34px; background:linear-gradient(180deg,var(--color-gold),transparent); animation:scrollhint 2.2s var(--ease-out) infinite}@keyframes scrollhint{ 0%{ transform:scaleY(.2); transform-origin:top} 60%,100%{ transform:scaleY(1); transform-origin:top} }.reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}.reveal.is-in{ opacity:1; transform:none}.reveal-stagger > *{ opacity:0; transform:translateY(22px); transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}.reveal-stagger.is-in > *{ opacity:1; transform:none}.reveal-stagger.is-in > *:nth-child(1){ transition-delay:.00s}.reveal-stagger.is-in > *:nth-child(2){ transition-delay:.08s}.reveal-stagger.is-in > *:nth-child(3){ transition-delay:.16s}.reveal-stagger.is-in > *:nth-child(4){ transition-delay:.24s}.reveal-stagger.is-in > *:nth-child(5){ transition-delay:.32s}.reveal-stagger.is-in > *:nth-child(6){ transition-delay:.40s}.reveal-stagger.is-in > *:nth-child(7){ transition-delay:.48s}@media (prefers-reduced-motion:reduce){.reveal,.reveal-stagger > *{opacity:1!important;transform:none!important}}@media (min-width:900px){.nav__list{display:flex}.nav__cta{display:inline-flex}.nav__toggle{display:none}.hero__inner{grid-template-columns:1.05fr .95fr}}@media (min-width:640px){.hero__scroll{display:flex}}</style>
+<style>@font-face{font-family:'Fraunces';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/fraunces-600.woff2) format('woff2');}@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/inter-400.woff2) format('woff2');}@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/inter-600.woff2) format('woff2');}:root{--color-bg:#FBF9F4;--color-bg-alt:#FFFFFF;--color-bg-sage:#E4EDE6;--color-text:#0F2B22;--color-text-muted:#5B6B62;--color-green:#1F5D3C;--color-green-dark:#0F2B22;--color-gold:#C9A24B;--color-gold-soft:#E8D9B5;--color-gold-deep:#856523;--color-divider:#D9D2C2;--color-success:#2E7D4F;--color-error:#B3453A;--shadow-card:0 8px 24px rgba(15,43,34,.12);--shadow-lift:0 18px 44px rgba(15,43,34,.18);--shadow-gold:0 10px 30px rgba(201,162,75,.32);--font-display:'Fraunces','Iowan Old Style',Georgia,'Times New Roman',serif;--font-body:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;--radius-sm:10px;--radius:18px;--radius-lg:28px;--container:1200px;--gutter:clamp(1.25rem,4vw,3rem);--section-y:clamp(4.5rem,9vw,8.5rem);--ease-out:cubic-bezier(.22,1,.36,1);}*,*::before,*::after{ box-sizing:border-box}html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; scroll-padding-top:86px}body{margin:0;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}img,svg,picture{ display:block; max-width:100%; height:auto}a{ color:inherit; text-decoration:none}button,input,select,textarea{ font:inherit; color:inherit}h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; line-height:1.06; letter-spacing:-.015em; margin:0 0 .5em}h1{ font-size:clamp(2.05rem,4vw,3.5rem)}h2{ font-size:clamp(2rem,4.6vw,3.4rem)}h3{ font-size:clamp(1.25rem,2vw,1.6rem)}p{ margin:0 0 1.1em}ul{ margin:0; padding:0; list-style:none}:focus-visible{outline:3px solid rgba(201,162,75,.55);outline-offset:3px;border-radius:6px;}.container{ width:100%; max-width:var(--container); margin-inline:auto; padding-inline:var(--gutter)}.sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px;overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;}.skip-link{position:absolute; left:1rem; top:-100px; z-index:999;background:var(--color-gold); color:var(--color-green-dark);padding:.7rem 1.1rem; border-radius:0 0 var(--radius-sm) var(--radius-sm); font-weight:600;transition:top .2s var(--ease-out);}.skip-link:focus{ top:0}.eyebrow{display:inline-flex; align-items:center; gap:.6rem;font-size:.74rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase;color:var(--color-gold-deep); margin-bottom:1.1rem;}.eyebrow::before{ content:""; width:28px; height:1px; background:var(--color-gold)}.on-dark .eyebrow{ color:var(--color-gold)}.lead{ font-size:clamp(1.05rem,1.6vw,1.28rem); color:var(--color-text-muted); max-width:62ch}.on-dark .lead{ color:rgba(242,239,230,.78)}.section-head{ max-width:720px; margin-bottom:clamp(2.5rem,5vw,4rem)}.gold{ color:var(--color-gold-deep)}.on-dark .gold{ color:var(--color-gold)}.section{ padding-block:var(--section-y); position:relative}.section--sage{ background:var(--color-bg-sage)}.section--dark{background:linear-gradient(135deg,#0F2B22 0%,#1F5D3C 60%,#2A4A38 100%);color:#F2EFE6;}.section--dark h2,.section--dark h3{ color:#FFFFFF}.on-dark{ color:#F2EFE6}.fade-top::before,.fade-bottom::after{content:"";position:absolute;left:0; right:0;height:clamp(44px,5.5vw,88px);pointer-events:none;z-index:0;}.fade-top::before{top:0;background:linear-gradient(180deg,var(--color-bg) 0%,rgba(251,249,244,.72) 22%,rgba(251,249,244,.28) 52%,rgba(251,249,244,.06) 78%,rgba(251,249,244,0) 100%);}.fade-bottom::after{bottom:0;background:linear-gradient(180deg,rgba(251,249,244,0) 0%,rgba(251,249,244,.06) 22%,rgba(251,249,244,.28) 48%,rgba(251,249,244,.72) 78%,var(--color-bg) 100%);}.section--dark > .container,.hero > .container{ position:relative; z-index:1}.hero.fade-bottom::after{ z-index:0}.btn{--btn-bg:var(--color-gold);--btn-fg:var(--color-green-dark);display:inline-flex; align-items:center; justify-content:center; gap:.6rem;min-height:52px; padding:.85rem 1.6rem;background:var(--btn-bg); color:var(--btn-fg);border:1px solid transparent; border-radius:999px;font-weight:600; font-size:1rem; letter-spacing:.01em;cursor:pointer; text-align:center;box-shadow:var(--shadow-gold);transition:transform .3s var(--ease-out),box-shadow .3s var(--ease-out),background .3s var(--ease-out),color .2s;}.btn:hover{ transform:translateY(-2px) scale(1.03); box-shadow:0 16px 38px rgba(201,162,75,.42); background:linear-gradient(90deg,#C9A24B 0%,#E8D9B5 100%)}.btn:active{ transform:translateY(0) scale(.99)}.btn--ghost{--btn-bg:transparent; --btn-fg:currentColor;border-color:currentColor; box-shadow:none; opacity:.92;}.btn--ghost:hover{ background:rgba(201,162,75,.12); box-shadow:none; transform:translateY(-2px)}.btn--outline-dark{ --btn-bg:transparent; --btn-fg:var(--color-green-dark); border-color:rgba(15,43,34,.25); box-shadow:none}.btn--outline-dark:hover{ background:rgba(15,43,34,.06); box-shadow:none}.btn--sm{ min-height:44px; padding:.6rem 1.2rem; font-size:.92rem}.btn[disabled]{ opacity:.45; cursor:not-allowed; transform:none; box-shadow:none}.site-header{position:fixed; inset:0 0 auto 0; z-index:100;transition:background .4s var(--ease-out),box-shadow .4s var(--ease-out),border-color .4s;border-bottom:1px solid transparent;}.site-header.is-stuck{background:rgba(251,249,244,.82);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);border-bottom-color:var(--color-divider);box-shadow:0 6px 24px rgba(15,43,34,.07);}.nav{ display:flex; align-items:center; justify-content:space-between; gap:1.5rem; min-height:76px}.brand{ display:flex; align-items:center; gap:.7rem; font-family:var(--font-display); font-size:1.15rem; color:#FFF; transition:color .4s}.is-stuck .brand{ color:var(--color-green-dark)}.brand__mark{ width:34px; height:34px; flex:none}.brand__sub{ display:block; font-family:var(--font-body); font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; opacity:.7}.nav__list{ display:none; gap:clamp(.4rem,1.4vw,1.35rem); align-items:center}.nav__link{position:relative; padding:.45rem .2rem; font-size:.95rem; font-weight:500;color:rgba(255,255,255,.86); transition:color .3s;}.is-stuck .nav__link{ color:var(--color-text)}.nav__link::after{content:""; position:absolute; left:0; right:0; bottom:0; height:2px;background:var(--color-gold); transform:scaleX(0); transform-origin:left;transition:transform .35s var(--ease-out);}.nav__link:hover::after,.nav__link.is-active::after{ transform:scaleX(1)}.nav__actions{ display:flex; align-items:center; gap:.6rem}.nav__cta{ display:none}.nav__toggle{display:inline-flex; flex-direction:column; justify-content:center; gap:5px;width:46px; height:46px; padding:0 11px; border:0; border-radius:12px;background:rgba(255,255,255,.12); cursor:pointer;}.is-stuck .nav__toggle{ background:rgba(15,43,34,.07)}.nav__toggle span{ display:block; height:2px; background:#FFF; border-radius:2px; transition:transform .3s var(--ease-out),opacity .2s}.is-stuck .nav__toggle span{ background:var(--color-green-dark)}.nav__toggle[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg)}.nav__toggle[aria-expanded="true"] span:nth-child(2){ opacity:0}.nav__toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg)}.mobile-menu{position:fixed; inset:0; z-index:99;background:linear-gradient(160deg,#0F2B22 0%,#1F5D3C 100%);display:grid; align-content:center; gap:.25rem;padding:6rem var(--gutter) 3rem;opacity:0; visibility:hidden; transform:translateY(-12px);transition:opacity .35s var(--ease-out),transform .35s var(--ease-out),visibility .35s;}.mobile-menu.is-open{ opacity:1; visibility:visible; transform:none}.mobile-menu a{font-family:var(--font-display); font-size:clamp(1.6rem,7vw,2.4rem); color:#F2EFE6;padding:.35rem 0; border-bottom:1px solid rgba(242,239,230,.12);}.mobile-menu a:last-of-type{ border-bottom:0}.mobile-menu .btn{ margin-top:1.5rem}.hero{position:relative; min-height:100svh; display:flex; align-items:center;padding:6.5rem 0 4.5rem; overflow:hidden; isolation:isolate;background:linear-gradient(135deg,#0F2B22 0%,#1F5D3C 60%,#2A4A38 100%);color:#F2EFE6;}.hero__glow{position:absolute; z-index:-2; inset:auto -20% -30% auto; width:min(75vw,900px); aspect-ratio:1;background:radial-gradient(circle at 50% 50%,rgba(201,162,75,.30) 0%,rgba(201,162,75,.07) 45%,transparent 70%);pointer-events:none;}.hero__grain{position:absolute; inset:0; z-index:-1; pointer-events:none; opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");}.hero__inner{ display:grid; gap:clamp(2.5rem,5vw,4rem); align-items:center}.hero__claim{ margin-bottom:1.15rem; max-width:17ch; line-height:1.02; letter-spacing:-.025em}.hero__claim em{ font-style:normal; color:var(--color-gold); display:block}.hero__lead{ font-size:clamp(1rem,1.1vw,1.08rem); line-height:1.6; margin-bottom:1.9rem; max-width:45ch}.hero__actions{ display:flex; flex-wrap:wrap; gap:.7rem; margin-bottom:2.2rem}.hero__stats{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; max-width:470px}.hero__stat{ border-top:1px solid rgba(232,217,181,.28); padding-top:.9rem}.hero__stat b{ display:block; font-family:var(--font-display); font-size:clamp(1.5rem,2.6vw,2rem); color:var(--color-gold); line-height:1}.hero__stat span{ font-size:.78rem; color:rgba(242,239,230,.72)}.hero__visual{ position:relative}.hero__visual img{ border-radius:var(--radius-lg); box-shadow:0 40px 80px rgba(0,0,0,.45)}.hero__badge{position:absolute; left:-8px; bottom:-18px;background:rgba(251,249,244,.96); color:var(--color-green-dark);border-radius:var(--radius); padding:.85rem 1.15rem; box-shadow:var(--shadow-card);display:flex; align-items:center; gap:.7rem; font-size:.88rem; font-weight:600;}.hero__badge.is-closed .dot{ background:var(--color-gold-deep); animation:none}.hero__badge .dot{ width:9px; height:9px; border-radius:50%; background:var(--color-success); box-shadow:0 0 0 0 rgba(46,125,79,.6); animation:pulse 2.6s infinite}@keyframes pulse{ 70%{ box-shadow:0 0 0 12px rgba(46,125,79,0)} 100%{ box-shadow:0 0 0 0 rgba(46,125,79,0)} }.hero__scroll{position:absolute; left:50%; bottom:1.6rem; transform:translateX(-50%);font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(242,239,230,.6);display:none; align-items:center; gap:.55rem;}.hero__scroll::after{ content:""; width:1px; height:34px; background:linear-gradient(180deg,var(--color-gold),transparent); animation:scrollhint 2.2s var(--ease-out) infinite}@keyframes scrollhint{ 0%{ transform:scaleY(.2); transform-origin:top} 60%,100%{ transform:scaleY(1); transform-origin:top} }.reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}.reveal.is-in{ opacity:1; transform:none}.reveal-stagger > *{ opacity:0; transform:translateY(22px); transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}.reveal-stagger.is-in > *{ opacity:1; transform:none}.reveal-stagger.is-in > *:nth-child(1){ transition-delay:.00s}.reveal-stagger.is-in > *:nth-child(2){ transition-delay:.08s}.reveal-stagger.is-in > *:nth-child(3){ transition-delay:.16s}.reveal-stagger.is-in > *:nth-child(4){ transition-delay:.24s}.reveal-stagger.is-in > *:nth-child(5){ transition-delay:.32s}.reveal-stagger.is-in > *:nth-child(6){ transition-delay:.40s}.reveal-stagger.is-in > *:nth-child(7){ transition-delay:.48s}@media (prefers-reduced-motion:reduce){.reveal,.reveal-stagger > *{opacity:1!important;transform:none!important}}@media (min-width:900px){.nav__list{display:flex}.nav__cta{display:inline-flex}.nav__toggle{display:none}.hero__inner{grid-template-columns:1.05fr .95fr}}@media (min-width:640px){.hero__scroll{display:flex}}</style>
 <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
 <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
 <script src="/js/main.js" defer></script>
@@ -139,7 +139,7 @@
 
 <header class="site-header" id="site-header">
   <div class="container nav">
-    <a class="brand" href="#top" aria-label="Bowling bar Step — domů">
+    <a class="brand" href="#top">
       <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" fill="none">
         <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.4" opacity=".45"/>
         <path d="M20 8c2.4 0 3.9 2.2 3.9 4.6 0 1.8-1.2 3-1.5 4 2.4 1.6 3.8 4.2 3.8 7.3 0 4.4-2.6 7.6-6.2 7.6s-6.2-3.2-6.2-7.6c0-3.1 1.4-5.7 3.8-7.3-.3-1-1.5-2.2-1.5-4C16.1 10.2 17.6 8 20 8Z" fill="#C9A24B"/>
@@ -399,150 +399,113 @@
   </section>
 
 
-  <!-- ============ REZERVACE (DEMO) ============ -->
+  <!-- ============ REZERVACE ============ -->
   <section class="section" id="rezervace">
-    <div class="container booking">
-      <div class="booking__aside reveal">
+    <div class="container">
+      <div class="section-head reveal">
         <p class="eyebrow">Rezervace</p>
-        <h2>Zjistěte dostupnost za 30 sekund</h2>
-        <p class="lead">Vyberte termín, počet drah a hráčů. Ozveme se s potvrzením — nebo nám rovnou zavolejte.</p>
-        <ul class="booking__facts">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Hrajeme denně od 14:00 do 01:00, poslední start hry ve 24:00.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span>Rezervujete celou dráhu — hraje na ní až 6 hráčů.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg><span>Raději po telefonu? <a href="tel:+420296786330">+420 296 786 330</a></span></li>
-        </ul>
+        <h2>Vyberte si dráhu, čas a jde se hrát</h2>
+        <p class="lead">Klikněte na volné sloty v mřížce níže — cena se počítá automaticky za každou vybranou hodinu. Rezervaci pak jen doplníte kontaktem.</p>
       </div>
+      <p class="booking-hint">Rezervujete celou dráhu — hraje na ní až 6 hráčů. Raději po telefonu? <a href="tel:+420296786330">+420 296 786 330</a></p>
 
-      <div class="wizard reveal" id="wizard">
-        <div class="wizard__head">
-          <h3 id="wizard-title">Rezervace dráhy</h3>
-          <p class="wizard__step-label">Krok <span id="step-now">1</span> z <span id="step-total">5</span></p>
-        </div>
-        <div class="wizard__progress" role="progressbar" aria-labelledby="wizard-title" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20" id="progress">
-          <div class="wizard__progress-bar" id="progress-bar"></div>
-        </div>
-
-        <form class="wizard__viewport" id="booking-form" novalidate>
-          <!-- KROK 1 -->
-          <fieldset class="step is-active" data-step="1">
-            <legend class="sr-only">Termín a čas</legend>
-            <h3>Kdy k nám dorazíte?</h3>
-            <p class="step__hint">Vyberte datum a čas začátku hry.</p>
-            <div class="field">
-              <label for="datum">Datum</label>
-              <input type="date" id="datum" name="datum" required>
-              <p class="field__error" id="datum-error">Vyberte prosím datum od dneška dál.</p>
-            </div>
-            <div class="field">
-              <span class="label" id="cas-label" style="font-size:.85rem;font-weight:600">Čas začátku</span>
-              <div class="slots" role="radiogroup" aria-labelledby="cas-label" id="cas-slots"></div>
-              <p class="field__error" id="cas-error">Vyberte prosím čas.</p>
-            </div>
-          </fieldset>
-
-          <!-- KROK 2 -->
-          <fieldset class="step" data-step="2">
-            <legend class="sr-only">Dráhy a hráči</legend>
-            <h3>Kolik vás bude?</h3>
-            <p class="step__hint">Na jednu dráhu se vejde až 6 hráčů. K dispozici jsou 3 dráhy.</p>
-            <div class="field">
-              <label for="drahy" id="drahy-label">Počet drah</label>
-              <div class="counter">
-                <button type="button" class="counter__btn" data-counter="drahy" data-delta="-1" aria-label="Ubrat dráhu">−</button>
-                <output id="drahy" for="drahy-label" aria-live="polite">1</output>
-                <button type="button" class="counter__btn" data-counter="drahy" data-delta="1" aria-label="Přidat dráhu">+</button>
-              </div>
-            </div>
-            <div class="field">
-              <label for="hraci" id="hraci-label">Počet hráčů</label>
-              <div class="counter">
-                <button type="button" class="counter__btn" data-counter="hraci" data-delta="-1" aria-label="Ubrat hráče">−</button>
-                <output id="hraci" for="hraci-label" aria-live="polite">4</output>
-                <button type="button" class="counter__btn" data-counter="hraci" data-delta="1" aria-label="Přidat hráče">+</button>
-              </div>
-              <p class="field__error" id="hraci-error">Na tento počet hráčů potřebujete více drah.</p>
-            </div>
-            <div class="field">
-              <label for="delka">Délka hry</label>
-              <select id="delka" name="delka">
-                <option value="1">1 hodina</option>
-                <option value="2" selected>2 hodiny</option>
-                <option value="3">3 hodiny</option>
-              </select>
-            </div>
-          </fieldset>
-
-          <!-- KROK 3 -->
-          <fieldset class="step" data-step="3">
-            <legend class="sr-only">Doplňkové služby</legend>
-            <h3>Přidáme něco k tomu?</h3>
-            <p class="step__hint">Volitelné — hodí se hlavně pro firemní akce a oslavy. Cenu doladíme podle počtu hostů.</p>
-            <label class="addon"><input type="checkbox" name="doplnky" value="Lehké občerstvení"><span><b>Lehké občerstvení</b><span>Chuťovky a mísy k drahám po celou dobu hry.</span></span></label>
-            <label class="addon"><input type="checkbox" name="doplnky" value="Raut na míru"><span><b>Raut na míru</b><span>Teplý i studený raut připravený podle vašeho rozpočtu.</span></span></label>
-            <label class="addon"><input type="checkbox" name="doplnky" value="Nápojový balíček"><span><b>Nápojový balíček</b><span>Široká nabídka alkoholických i nealkoholických nápojů na účet firmy.</span></span></label>
-            <label class="addon"><input type="checkbox" name="doplnky" value="Pronájem celého baru"><span><b>Pronájem celého baru</b><span>Bar s kapacitou 45 osob jen pro vaši akci, včetně kulečníku a stolního fotbalu.</span></span></label>
-          </fieldset>
-
-          <!-- KROK 4 -->
-          <fieldset class="step" data-step="4">
-            <legend class="sr-only">Kontaktní údaje</legend>
-            <h3>Kam vám pošleme potvrzení?</h3>
-            <p class="step__hint">Ozveme se obvykle do pár hodin v otevírací době.</p>
-            <div class="field-grid">
-              <div class="field">
-                <label for="jmeno">Jméno a příjmení</label>
-                <input type="text" id="jmeno" name="jmeno" autocomplete="name" required>
-                <p class="field__error" id="jmeno-error">Vyplňte prosím jméno.</p>
-              </div>
-              <div class="field">
-                <label for="telefon">Telefon</label>
-                <input type="tel" id="telefon" name="telefon" autocomplete="tel" placeholder="+420 777 123 456" required>
-                <p class="field__error" id="telefon-error">Zadejte prosím platné telefonní číslo.</p>
-              </div>
-            </div>
-            <div class="field">
-              <label for="email">E-mail</label>
-              <input type="email" id="email" name="email" autocomplete="email" placeholder="vas@email.cz" required>
-              <p class="field__error" id="email-error">Zadejte prosím platný e-mail.</p>
-            </div>
-            <div class="field">
-              <label for="poznamka">Poznámka <span style="font-weight:400;color:var(--color-text-muted)">(nepovinné)</span></label>
-              <textarea id="poznamka" name="poznamka" placeholder="Firemní večírek, potřebujeme fakturu, dorazíme o 15 minut dřív…"></textarea>
-            </div>
-          </fieldset>
-
-          <!-- KROK 5 -->
-          <fieldset class="step" data-step="5">
-            <legend class="sr-only">Shrnutí</legend>
-            <h3>Sedí to takhle?</h3>
-            <p class="step__hint">Zkontrolujte údaje a odešlete nezávaznou poptávku.</p>
-            <div class="summary">
-              <dl id="summary-list"></dl>
-              <div class="summary__total"><span>Orientační cena za bowling</span><b id="summary-total">—</b></div>
-            </div>
-          </fieldset>
-
-          <!-- ÚSPĚCH -->
-          <fieldset class="step" data-step="6">
-            <legend class="sr-only">Potvrzení</legend>
-            <div class="success">
-              <div class="success__ring">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg>
-              </div>
-              <h3>Rezervace odeslána!</h3>
-              <p class="step__hint" id="success-text">Díky! Ozveme se vám s potvrzením termínu.</p>
-              <a class="btn btn--outline-dark btn--sm" href="#top">Zpět na začátek</a>
-            </div>
-          </fieldset>
-
-          <div class="wizard__nav" id="wizard-nav">
-            <button type="button" class="btn btn--outline-dark" id="btn-back" disabled>Zpět</button>
-            <button type="button" class="btn" id="btn-next">Pokračovat</button>
+      <div class="booking-app reveal" id="booking-app">
+        <div class="booking-app__main">
+          <!-- BookingCalendar -->
+          <div class="booking-calendar" id="booking-calendar">
+            <button type="button" class="booking-calendar__nav" id="date-prev" aria-label="O den dříve">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <div class="booking-calendar__days" id="date-days" role="listbox" aria-label="Vyberte datum"></div>
+            <button type="button" class="booking-calendar__nav" id="date-next" aria-label="O den později">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+            </button>
           </div>
-        </form>
 
-        <p class="demo-note"><strong>Ukázkový rezervační formulář.</strong> Jde o demo bez napojení na rezervační systém — data se nikam neodesílají, pouze se vypíšou do konzole prohlížeče. Rozhraní je připravené na napojení na reálný backend.</p>
+          <!-- BookingGrid (LaneRow × TimeSlot) -->
+          <div class="booking-grid-scroll">
+            <div class="booking-grid" id="booking-grid" role="group" aria-label="Dostupnost drah — vyberte dráhu a hodinu"></div>
+          </div>
+
+          <ul class="booking-legend">
+            <li><i class="booking-legend__dot booking-legend__dot--free" aria-hidden="true"></i>Volné</li>
+            <li><i class="booking-legend__dot booking-legend__dot--selected" aria-hidden="true"></i>Vybráno</li>
+            <li><i class="booking-legend__dot booking-legend__dot--full" aria-hidden="true"></i>Obsazeno</li>
+            <li><i class="booking-legend__dot booking-legend__dot--past" aria-hidden="true"></i>Minulé</li>
+          </ul>
+        </div>
+
+        <!-- BookingSummary -->
+        <aside class="booking-summary" id="booking-summary" aria-live="polite">
+          <h3>Vaše rezervace</h3>
+          <p class="booking-summary__date" id="summary-date"></p>
+          <p class="booking-summary__empty" id="summary-empty">Zatím nic nevybráno — klikněte na volný slot v mřížce.</p>
+          <div class="booking-summary__lanes" id="summary-lanes"></div>
+          <div class="booking-summary__total">
+            <span>Celkem</span>
+            <b id="summary-total">0 Kč</b>
+          </div>
+          <button type="button" class="btn" id="btn-continue" disabled>Pokračovat k rezervaci</button>
+        </aside>
       </div>
+
+      <!-- BookingForm -->
+      <div class="booking-form-panel" id="booking-form-panel" hidden>
+        <div class="booking-form-card reveal">
+          <button type="button" class="booking-form__back" id="btn-form-back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            Zpět na výběr
+          </button>
+
+          <div id="booking-form-wrap">
+            <h3>Kontaktní údaje</h3>
+            <p class="step__hint">Ozveme se obvykle do pár hodin v otevírací době a rezervaci potvrdíme.</p>
+
+            <form id="booking-form" novalidate>
+              <div class="field-grid">
+                <div class="field">
+                  <label for="jmeno">Jméno a příjmení</label>
+                  <input type="text" id="jmeno" name="jmeno" autocomplete="name" required>
+                  <p class="field__error" id="jmeno-error">Vyplňte prosím jméno.</p>
+                </div>
+                <div class="field">
+                  <label for="telefon">Telefon</label>
+                  <input type="tel" id="telefon" name="telefon" autocomplete="tel" placeholder="+420 777 123 456" required>
+                  <p class="field__error" id="telefon-error">Zadejte prosím platné telefonní číslo.</p>
+                </div>
+              </div>
+              <div class="field">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" autocomplete="email" placeholder="vas@email.cz" required>
+                <p class="field__error" id="email-error">Zadejte prosím platný e-mail.</p>
+              </div>
+              <div class="field">
+                <label for="poznamka">Poznámka <span style="font-weight:400;color:var(--color-text-muted)">(nepovinné)</span></label>
+                <textarea id="poznamka" name="poznamka" placeholder="Firemní večírek, potřebujeme fakturu, dorazíme o 15 minut dřív…"></textarea>
+              </div>
+
+              <div class="summary" id="form-summary">
+                <p class="booking-summary__date" id="form-summary-date"></p>
+                <div class="booking-summary__lanes" id="form-summary-lanes"></div>
+                <div class="summary__total"><span>Celkem</span><b id="form-summary-total">0 Kč</b></div>
+              </div>
+
+              <button type="submit" class="btn" id="btn-submit">Odeslat rezervaci</button>
+            </form>
+          </div>
+
+          <div class="success" id="booking-success" hidden>
+            <div class="success__ring">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg>
+            </div>
+            <h3>Rezervace odeslána!</h3>
+            <p class="step__hint" id="success-text">Díky! Ozveme se vám s potvrzením termínu.</p>
+            <a class="btn btn--outline-dark btn--sm" href="#top">Zpět na začátek</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="demo-note"><strong>Ukázkový rezervační systém.</strong> Jde o demo bez napojení na rezervační backend — data se nikam neodesílají, pouze se vypíšou do konzole prohlížeče. Dostupnost drah je mockovaná pro účely ukázky a je snadné ji později nahradit voláním reálného API.</p>
     </div>
   </section>
 
@@ -601,9 +564,10 @@
           <div class="reveal map-wrap">
             <div class="map-embed">
               <iframe
-                title="Mapa — Bowling bar Step, Malletova 1141/4, Praha 9"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=14.4803%2C50.1055%2C14.5003%2C50.1155&amp;layer=mapnik&amp;marker=50.1105%2C14.4903"
-                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  title="Mapa — Bowling bar Step, Malletova 1141/4, 190 00 Praha 9 – Libeň"
+                  src="https://www.google.com/maps?q=Malletova%201141%2F4%2C%20190%2000%20Praha%209%20-%20Libe%C5%88&amp;hl=cs&amp;z=16&amp;output=embed"
+                  loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                  allowfullscreen></iframe>
             </div>
             <p class="map-actions">
               <a class="btn btn--outline-dark btn--sm" href="https://mapy.cz/zakladni?q=Malletova%201141%2F4%20Praha%209" target="_blank" rel="noopener">Otevřít v Mapy.cz</a>
@@ -667,6 +631,23 @@
 </footer>
 
 <a class="btn floating-cta" id="floating-cta" href="#rezervace">Zarezervovat</a>
+
+<!-- Trvalé, ale minimalizovatelné upozornění, že jde o ukázkový web. -->
+<div class="demo-flag" id="demo-flag">
+  <div class="demo-flag__panel" id="demo-flag-panel" role="note" aria-label="Informace o ukázkovém webu">
+    <button type="button" class="demo-flag__min" id="demo-flag-min" aria-label="Minimalizovat upozornění">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>
+    </button>
+    <p class="demo-flag__title"><span class="demo-flag__tag">Demo</span> Ukázkový web</p>
+    <p class="demo-flag__body">Nezávazný návrh redesignu pro Bowling bar&nbsp;Step. Nejde o oficiální web provozovatele — rezervace je pouze ukázková a ceny jsou orientační.</p>
+    <a class="demo-flag__link" href="https://www.bowling-step.cz" target="_blank" rel="noopener">Oficiální web bowling-step.cz →</a>
+  </div>
+  <button type="button" class="demo-flag__pill" id="demo-flag-open" aria-expanded="true" aria-controls="demo-flag-panel" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.6"/></svg>
+    Demo
+  </button>
+</div>
+
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Náhled fotografie" hidden>
   <button class="lightbox__close" type="button" aria-label="Zavřít náhled">&times;</button>

@@ -116,6 +116,31 @@
   var rok = document.getElementById('rok');
   if (rok) rok.textContent = String(new Date().getFullYear());
 
+  /* ---------- Upozornění na ukázkový web (minimalizovatelné) ---------- */
+  var demoFlag = document.getElementById('demo-flag');
+  if (demoFlag) {
+    var demoMin = document.getElementById('demo-flag-min');
+    var demoOpen = document.getElementById('demo-flag-open');
+    var STORE_KEY = 'bs-demo-flag';
+
+    function readPref() {
+      try { return window.localStorage.getItem(STORE_KEY); } catch (e) { return null; }
+    }
+    function savePref(value) {
+      try { window.localStorage.setItem(STORE_KEY, value); } catch (e) { /* private mode – nevadí */ }
+    }
+    function setDemoNote(minimized) {
+      demoFlag.classList.toggle('is-min', minimized);
+      demoOpen.hidden = !minimized;
+      demoOpen.setAttribute('aria-expanded', String(!minimized));
+      document.getElementById('demo-flag-panel').setAttribute('aria-hidden', String(minimized));
+    }
+
+    setDemoNote(readPref() === 'min');
+    demoMin.addEventListener('click', function () { setDemoNote(true); savePref('min'); demoOpen.focus(); });
+    demoOpen.addEventListener('click', function () { setDemoNote(false); savePref('open'); demoMin.focus(); });
+  }
+
   /* ---------- Lightbox galerie ---------- */
   var lightbox = document.getElementById('lightbox');
   var lbImg = document.getElementById('lightbox-img');

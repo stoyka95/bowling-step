@@ -402,150 +402,113 @@
 
   <div class="transition-fade" aria-hidden="true"></div>
 
-  <!-- ============ REZERVACE (DEMO) ============ -->
+  <!-- ============ REZERVACE ============ -->
   <section class="section" id="rezervace">
-    <div class="container booking">
-      <div class="booking__aside reveal">
+    <div class="container">
+      <div class="section-head reveal">
         <p class="eyebrow">Rezervace</p>
-        <h2>Zjistěte dostupnost za 30 sekund</h2>
-        <p class="lead">Vyberte termín, počet drah a hráčů. Ozveme se s potvrzením — nebo nám rovnou zavolejte.</p>
-        <ul class="booking__facts">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Hrajeme denně od 14:00 do 01:00, poslední start hry ve 24:00.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span>Rezervujete celou dráhu — hraje na ní až 6 hráčů.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg><span>Raději po telefonu? <a href="tel:+420296786330">+420 296 786 330</a></span></li>
-        </ul>
+        <h2>Vyberte si dráhu, čas a jde se hrát</h2>
+        <p class="lead">Klikněte na volné sloty v mřížce níže — cena se počítá automaticky za každou vybranou hodinu. Rezervaci pak jen doplníte kontaktem.</p>
       </div>
+      <p class="booking-hint">Rezervujete celou dráhu — hraje na ní až 6 hráčů. Raději po telefonu? <a href="tel:+420296786330">+420 296 786 330</a></p>
 
-      <div class="wizard reveal" id="wizard">
-        <div class="wizard__head">
-          <h3 id="wizard-title">Rezervace dráhy</h3>
-          <p class="wizard__step-label">Krok <span id="step-now">1</span> z <span id="step-total">5</span></p>
-        </div>
-        <div class="wizard__progress" role="progressbar" aria-labelledby="wizard-title" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20" id="progress">
-          <div class="wizard__progress-bar" id="progress-bar"></div>
-        </div>
-
-        <form class="wizard__viewport" id="booking-form" novalidate>
-          <!-- KROK 1 -->
-          <fieldset class="step is-active" data-step="1">
-            <legend class="sr-only">Termín a čas</legend>
-            <h3>Kdy k nám dorazíte?</h3>
-            <p class="step__hint">Vyberte datum a čas začátku hry.</p>
-            <div class="field">
-              <label for="datum">Datum</label>
-              <input type="date" id="datum" name="datum" required>
-              <p class="field__error" id="datum-error">Vyberte prosím datum od dneška dál.</p>
-            </div>
-            <div class="field">
-              <span class="label" id="cas-label" style="font-size:.85rem;font-weight:600">Čas začátku</span>
-              <div class="slots" role="radiogroup" aria-labelledby="cas-label" id="cas-slots"></div>
-              <p class="field__error" id="cas-error">Vyberte prosím čas.</p>
-            </div>
-          </fieldset>
-
-          <!-- KROK 2 -->
-          <fieldset class="step" data-step="2">
-            <legend class="sr-only">Dráhy a hráči</legend>
-            <h3>Kolik vás bude?</h3>
-            <p class="step__hint">Na jednu dráhu se vejde až 6 hráčů. K dispozici jsou 3 dráhy.</p>
-            <div class="field">
-              <label for="drahy" id="drahy-label">Počet drah</label>
-              <div class="counter">
-                <button type="button" class="counter__btn" data-counter="drahy" data-delta="-1" aria-label="Ubrat dráhu">−</button>
-                <output id="drahy" for="drahy-label" aria-live="polite">1</output>
-                <button type="button" class="counter__btn" data-counter="drahy" data-delta="1" aria-label="Přidat dráhu">+</button>
-              </div>
-            </div>
-            <div class="field">
-              <label for="hraci" id="hraci-label">Počet hráčů</label>
-              <div class="counter">
-                <button type="button" class="counter__btn" data-counter="hraci" data-delta="-1" aria-label="Ubrat hráče">−</button>
-                <output id="hraci" for="hraci-label" aria-live="polite">4</output>
-                <button type="button" class="counter__btn" data-counter="hraci" data-delta="1" aria-label="Přidat hráče">+</button>
-              </div>
-              <p class="field__error" id="hraci-error">Na tento počet hráčů potřebujete více drah.</p>
-            </div>
-            <div class="field">
-              <label for="delka">Délka hry</label>
-              <select id="delka" name="delka">
-                <option value="1">1 hodina</option>
-                <option value="2" selected>2 hodiny</option>
-                <option value="3">3 hodiny</option>
-              </select>
-            </div>
-          </fieldset>
-
-          <!-- KROK 3 -->
-          <fieldset class="step" data-step="3">
-            <legend class="sr-only">Doplňkové služby</legend>
-            <h3>Přidáme něco k tomu?</h3>
-            <p class="step__hint">Volitelné — hodí se hlavně pro firemní akce a oslavy. Cenu doladíme podle počtu hostů.</p>
-            <label class="addon"><input type="checkbox" name="doplnky" value="Lehké občerstvení"><span><b>Lehké občerstvení</b><span>Chuťovky a mísy k drahám po celou dobu hry.</span></span></label>
-            <label class="addon"><input type="checkbox" name="doplnky" value="Raut na míru"><span><b>Raut na míru</b><span>Teplý i studený raut připravený podle vašeho rozpočtu.</span></span></label>
-            <label class="addon"><input type="checkbox" name="doplnky" value="Nápojový balíček"><span><b>Nápojový balíček</b><span>Široká nabídka alkoholických i nealkoholických nápojů na účet firmy.</span></span></label>
-            <label class="addon"><input type="checkbox" name="doplnky" value="Pronájem celého baru"><span><b>Pronájem celého baru</b><span>Bar s kapacitou 45 osob jen pro vaši akci, včetně kulečníku a stolního fotbalu.</span></span></label>
-          </fieldset>
-
-          <!-- KROK 4 -->
-          <fieldset class="step" data-step="4">
-            <legend class="sr-only">Kontaktní údaje</legend>
-            <h3>Kam vám pošleme potvrzení?</h3>
-            <p class="step__hint">Ozveme se obvykle do pár hodin v otevírací době.</p>
-            <div class="field-grid">
-              <div class="field">
-                <label for="jmeno">Jméno a příjmení</label>
-                <input type="text" id="jmeno" name="jmeno" autocomplete="name" required>
-                <p class="field__error" id="jmeno-error">Vyplňte prosím jméno.</p>
-              </div>
-              <div class="field">
-                <label for="telefon">Telefon</label>
-                <input type="tel" id="telefon" name="telefon" autocomplete="tel" placeholder="+420 777 123 456" required>
-                <p class="field__error" id="telefon-error">Zadejte prosím platné telefonní číslo.</p>
-              </div>
-            </div>
-            <div class="field">
-              <label for="email">E-mail</label>
-              <input type="email" id="email" name="email" autocomplete="email" placeholder="vas@email.cz" required>
-              <p class="field__error" id="email-error">Zadejte prosím platný e-mail.</p>
-            </div>
-            <div class="field">
-              <label for="poznamka">Poznámka <span style="font-weight:400;color:var(--color-text-muted)">(nepovinné)</span></label>
-              <textarea id="poznamka" name="poznamka" placeholder="Firemní večírek, potřebujeme fakturu, dorazíme o 15 minut dřív…"></textarea>
-            </div>
-          </fieldset>
-
-          <!-- KROK 5 -->
-          <fieldset class="step" data-step="5">
-            <legend class="sr-only">Shrnutí</legend>
-            <h3>Sedí to takhle?</h3>
-            <p class="step__hint">Zkontrolujte údaje a odešlete nezávaznou poptávku.</p>
-            <div class="summary">
-              <dl id="summary-list"></dl>
-              <div class="summary__total"><span>Orientační cena za bowling</span><b id="summary-total">—</b></div>
-            </div>
-          </fieldset>
-
-          <!-- ÚSPĚCH -->
-          <fieldset class="step" data-step="6">
-            <legend class="sr-only">Potvrzení</legend>
-            <div class="success">
-              <div class="success__ring">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg>
-              </div>
-              <h3>Rezervace odeslána!</h3>
-              <p class="step__hint" id="success-text">Díky! Ozveme se vám s potvrzením termínu.</p>
-              <a class="btn btn--outline-dark btn--sm" href="#top">Zpět na začátek</a>
-            </div>
-          </fieldset>
-
-          <div class="wizard__nav" id="wizard-nav">
-            <button type="button" class="btn btn--outline-dark" id="btn-back" disabled>Zpět</button>
-            <button type="button" class="btn" id="btn-next">Pokračovat</button>
+      <div class="booking-app reveal" id="booking-app">
+        <div class="booking-app__main">
+          <!-- BookingCalendar -->
+          <div class="booking-calendar" id="booking-calendar">
+            <button type="button" class="booking-calendar__nav" id="date-prev" aria-label="O den dříve">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <div class="booking-calendar__days" id="date-days" role="listbox" aria-label="Vyberte datum"></div>
+            <button type="button" class="booking-calendar__nav" id="date-next" aria-label="O den později">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+            </button>
           </div>
-        </form>
 
-        <p class="demo-note"><strong>Ukázkový rezervační formulář.</strong> Jde o demo bez napojení na rezervační systém — data se nikam neodesílají, pouze se vypíšou do konzole prohlížeče. Rozhraní je připravené na napojení na reálný backend.</p>
+          <!-- BookingGrid (LaneRow × TimeSlot) -->
+          <div class="booking-grid-scroll">
+            <div class="booking-grid" id="booking-grid" role="grid" aria-label="Dostupnost drah"></div>
+          </div>
+
+          <ul class="booking-legend">
+            <li><i class="booking-legend__dot booking-legend__dot--free" aria-hidden="true"></i>Volné</li>
+            <li><i class="booking-legend__dot booking-legend__dot--selected" aria-hidden="true"></i>Vybráno</li>
+            <li><i class="booking-legend__dot booking-legend__dot--full" aria-hidden="true"></i>Obsazeno</li>
+            <li><i class="booking-legend__dot booking-legend__dot--past" aria-hidden="true"></i>Minulé</li>
+          </ul>
+        </div>
+
+        <!-- BookingSummary -->
+        <aside class="booking-summary" id="booking-summary" aria-live="polite">
+          <h3>Vaše rezervace</h3>
+          <p class="booking-summary__date" id="summary-date"></p>
+          <p class="booking-summary__empty" id="summary-empty">Zatím nic nevybráno — klikněte na volný slot v mřížce.</p>
+          <div class="booking-summary__lanes" id="summary-lanes"></div>
+          <div class="booking-summary__total">
+            <span>Celkem</span>
+            <b id="summary-total">0 Kč</b>
+          </div>
+          <button type="button" class="btn" id="btn-continue" disabled>Pokračovat k rezervaci</button>
+        </aside>
       </div>
+
+      <!-- BookingForm -->
+      <div class="booking-form-panel" id="booking-form-panel" hidden>
+        <div class="booking-form-card reveal">
+          <button type="button" class="booking-form__back" id="btn-form-back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            Zpět na výběr
+          </button>
+
+          <div id="booking-form-wrap">
+            <h3>Kontaktní údaje</h3>
+            <p class="step__hint">Ozveme se obvykle do pár hodin v otevírací době a rezervaci potvrdíme.</p>
+
+            <form id="booking-form" novalidate>
+              <div class="field-grid">
+                <div class="field">
+                  <label for="jmeno">Jméno a příjmení</label>
+                  <input type="text" id="jmeno" name="jmeno" autocomplete="name" required>
+                  <p class="field__error" id="jmeno-error">Vyplňte prosím jméno.</p>
+                </div>
+                <div class="field">
+                  <label for="telefon">Telefon</label>
+                  <input type="tel" id="telefon" name="telefon" autocomplete="tel" placeholder="+420 777 123 456" required>
+                  <p class="field__error" id="telefon-error">Zadejte prosím platné telefonní číslo.</p>
+                </div>
+              </div>
+              <div class="field">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" autocomplete="email" placeholder="vas@email.cz" required>
+                <p class="field__error" id="email-error">Zadejte prosím platný e-mail.</p>
+              </div>
+              <div class="field">
+                <label for="poznamka">Poznámka <span style="font-weight:400;color:var(--color-text-muted)">(nepovinné)</span></label>
+                <textarea id="poznamka" name="poznamka" placeholder="Firemní večírek, potřebujeme fakturu, dorazíme o 15 minut dřív…"></textarea>
+              </div>
+
+              <div class="summary" id="form-summary">
+                <p class="booking-summary__date" id="form-summary-date"></p>
+                <div class="booking-summary__lanes" id="form-summary-lanes"></div>
+                <div class="summary__total"><span>Celkem</span><b id="form-summary-total">0 Kč</b></div>
+              </div>
+
+              <button type="submit" class="btn" id="btn-submit">Odeslat rezervaci</button>
+            </form>
+          </div>
+
+          <div class="success" id="booking-success" hidden>
+            <div class="success__ring">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg>
+            </div>
+            <h3>Rezervace odeslána!</h3>
+            <p class="step__hint" id="success-text">Díky! Ozveme se vám s potvrzením termínu.</p>
+            <a class="btn btn--outline-dark btn--sm" href="#top">Zpět na začátek</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="demo-note"><strong>Ukázkový rezervační systém.</strong> Jde o demo bez napojení na rezervační backend — data se nikam neodesílají, pouze se vypíšou do konzole prohlížeče. Dostupnost drah je mockovaná pro účely ukázky a je snadné ji později nahradit voláním reálného API.</p>
     </div>
   </section>
 

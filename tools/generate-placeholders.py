@@ -122,6 +122,30 @@ def bar_counter(w, h, uid):
         out.append(f'<path d="M{gx-gh*0.28:.0f},{top-gh:.0f} L{gx+gh*0.28:.0f},{top-gh:.0f} L{gx+gh*0.16:.0f},{top:.0f} L{gx-gh*0.16:.0f},{top:.0f} Z" fill="{GOLD_S}" opacity=".45"/>')
     return "".join(out)
 
+def buffet(w, h, uid):
+    """Rautový stůl s mísami a sklenicemi."""
+    out = []
+    top = h * .58
+    # ubrus
+    out.append(f'<ellipse cx="{w*0.5:.0f}" cy="{top+h*0.04:.0f}" rx="{w*0.44:.0f}" ry="{h*0.06:.0f}" fill="#000" opacity=".3" filter="url(#blur{uid})"/>')
+    out.append(f'<rect x="{w*0.08:.0f}" y="{top:.0f}" width="{w*0.84:.0f}" height="{h*0.26:.0f}" rx="{h*0.02:.0f}" fill="{IVORY}" opacity=".82"/>')
+    out.append(f'<rect x="{w*0.08:.0f}" y="{top:.0f}" width="{w*0.84:.0f}" height="{h*0.035:.0f}" fill="{GOLD}" opacity=".7"/>')
+    rnd = random.Random(23)
+    # mísy a talíře
+    for i in range(5):
+        cx = w * (.18 + i * .16)
+        r = h * rnd.uniform(.045, .065)
+        out.append(f'<ellipse cx="{cx:.0f}" cy="{top-r*0.15:.0f}" rx="{r*1.5:.0f}" ry="{r*0.55:.0f}" fill="{GOLD_S}" opacity=".85"/>')
+        out.append(f'<ellipse cx="{cx:.0f}" cy="{top-r*0.35:.0f}" rx="{r*1.1:.0f}" ry="{r*0.4:.0f}" fill="{GREEN}" opacity=".55"/>')
+    # sklenice na stopce vzadu
+    for i in range(6):
+        gx = w * (.14 + i * .145)
+        gh = h * .095
+        gy = top - h * 0.015
+        out.append(f'<path d="M{gx-gh*0.22:.0f},{gy-gh:.0f} L{gx+gh*0.22:.0f},{gy-gh:.0f} L{gx+gh*0.06:.0f},{gy-gh*0.45:.0f} L{gx+gh*0.06:.0f},{gy:.0f} L{gx-gh*0.06:.0f},{gy:.0f} L{gx-gh*0.06:.0f},{gy-gh*0.45:.0f} Z" fill="{GOLD_S}" opacity=".55"/>')
+        out.append(f'<line x1="{gx-gh*0.16:.0f}" y1="{gy:.0f}" x2="{gx+gh*0.16:.0f}" y2="{gy:.0f}" stroke="{GOLD_S}" stroke-width="{h*0.006:.0f}" opacity=".6"/>')
+    return "".join(out)
+
 def billiards(w, h, uid):
     out = []
     cy = h * .62
@@ -189,7 +213,7 @@ def s_firemni(w, h, u): return lights(w, h, u, 4) + bar_counter(w, h, u) + peopl
 def s_oslavy(w, h, u): return lights(w, h, u, 6) + people(w, h, u, 5, base=h*0.96, scale=.75, op=.92) + "".join(
     f'<circle cx="{w*x:.0f}" cy="{h*y:.0f}" r="{h*r:.0f}" fill="{c}" opacity=".55"/>' for x, y, r, c in
     [(.14,.22,.035,GOLD),(.32,.14,.024,GOLD_S),(.72,.18,.030,GOLD),(.88,.28,.022,GOLD_S),(.55,.10,.020,GOLD)])
-def s_raut(w, h, u): return lights(w, h, u, 3) + bar_counter(w, h, u)
+def s_raut(w, h, u): return lights(w, h, u, 4) + buffet(w, h, u)
 def s_kulecnik(w, h, u): return lights(w, h, u, 3) + billiards(w, h, u)
 def s_fotbalek(w, h, u): return lights(w, h, u, 3) + foosball(w, h, u)
 def s_boty(w, h, u): return lights(w, h, u, 3) + shoes(w, h, u)

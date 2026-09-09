@@ -113,6 +113,9 @@
   var dateDays = document.getElementById('date-days');
   var grid = document.getElementById('booking-grid');
   var summaryDate = document.getElementById('summary-date');
+  var summaryCompact = document.getElementById('summary-compact');
+  var summaryToggle = document.getElementById('summary-toggle');
+  var summaryBox = document.getElementById('booking-summary');
   var summaryEmpty = document.getElementById('summary-empty');
   var summaryLanes = document.getElementById('summary-lanes');
   var summaryTotal = document.getElementById('summary-total');
@@ -265,11 +268,19 @@
     return '<div><p class="summary-lane__title">' + escapeHtml(laneData.lane.name) + '</p>' + rows + '</div>';
   }
 
+  function compactSummaryText(lanesData) {
+    if (!lanesData.length) return 'Zatím nic nevybráno';
+    var hours = lanesData.reduce(function (n, l) { return n + l.hoursCount; }, 0);
+    var lanes = lanesData.map(function (l) { return l.lane.name; }).join(', ');
+    return lanes + ' · ' + hours + '\u00A0h';
+  }
+
   function renderBookingSummary() {
     summaryDate.textContent = formatDateHuman(state.date);
     var lanesData = buildLaneSegments();
     var hasSelection = lanesData.length > 0;
 
+    if (summaryCompact) summaryCompact.textContent = compactSummaryText(lanesData);
     summaryEmpty.hidden = hasSelection;
     summaryLanes.innerHTML = hasSelection ? lanesData.map(renderLaneSummaryHtml).join('') : '';
 
@@ -278,8 +289,19 @@
     }, 0);
     summaryTotal.textContent = czk(total);
     btnContinue.disabled = !hasSelection;
+    if (!hasSelection && summaryBox) {
+      summaryBox.classList.remove('is-expanded');
+      if (summaryToggle) summaryToggle.setAttribute('aria-expanded', 'false');
+    }
 
     return { lanesData: lanesData, total: total };
+  }
+
+  if (summaryToggle) {
+    summaryToggle.addEventListener('click', function () {
+      var open = summaryBox.classList.toggle('is-expanded');
+      summaryToggle.setAttribute('aria-expanded', String(open));
+    });
   }
 
   /* ================= BookingForm ================= */

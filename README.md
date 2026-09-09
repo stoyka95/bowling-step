@@ -104,6 +104,13 @@ o nezávazný návrh, ne o oficiální web provozovatele. Jde ji minimalizovat n
 štítek „Demo"; volba se pamatuje v `localStorage` (`bs-demo-flag`). Na mobilu se
 minimalizovaný štítek posadí vlevo od plovoucího CTA, aby se nepřekrývaly.
 
+## Rezervace na mobilu
+
+Sticky lišta se souhrnem je záměrně nízká — ukazuje jen jednořádkové shrnutí,
+celkovou cenu a CTA. Detail (dráhy, časy, ceny za dráhu) se rozbaluje klepnutím.
+Mřížka má pod sebou odsazení, aby se poslední dráha dala vždy vyscrollovat nad
+lištu. V rezervační sekci se skrývá plovoucí CTA i lišta o ukázkovém webu.
+
 ## Mapa
 
 Kontakt používá bezklíčový Google Maps embed (`google.com/maps?q=…&output=embed`)
@@ -159,6 +166,8 @@ python3 tools/generate-placeholders.py   # spouštět z kořene repa
 - viditelné focus stavy, skip-link, ARIA popisky u wizardu a lightboxu, `role="progressbar"`
 - kompletní ovládání klávesnicí (menu, wizard, galerie)
 - `prefers-reduced-motion` vypíná všechny animace i parallax
+- `color-scheme: light` (meta i CSS) — bez toho si Chrome na Androidu světlý
+  design sám invertuje do tmavého a rozbije kontrasty i barvy
 - přechody mezi světlými a tmavými sekcemi jsou řešené překryvem uvnitř sekce
   (třídy `.fade-top` / `.fade-bottom`), ne samostatným pruhem — navazují přesně
   na diagonální gradient sekce a nevzniká hrana

@@ -7,6 +7,7 @@
    ========================================================= */
 
 :root {
+  color-scheme: light;
   --color-bg: #FBF9F4;
   --color-bg-alt: #FFFFFF;
   --color-bg-sage: #E4EDE6;
@@ -91,7 +92,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--color-gold); }
 .on-dark .eyebrow { color: var(--color-gold); }
 .lead { font-size: clamp(1.05rem, 1.6vw, 1.28rem); color: var(--color-text-muted); max-width: 62ch; }
-.on-dark .lead { color: rgba(242, 239, 230, .78); }
+.on-dark .lead { color: rgba(242, 239, 230, .88); }
 .section-head { max-width: 720px; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
 .gold { color: var(--color-gold-deep); }
 .on-dark .gold { color: var(--color-gold); }
@@ -313,9 +314,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 /* ---------- Ceník ---------- */
-.pricing { display: grid; gap: 1.25rem; grid-template-columns: 1fr; align-items: start; }
+.pricing { display: grid; gap: 1.25rem; grid-template-columns: 1fr; align-items: stretch; }
 .price-card {
-  position: relative; background: var(--color-bg-alt); border: 1px solid var(--color-divider);
+  position: relative; display: flex; flex-direction: column; height: 100%;
+  background: var(--color-bg-alt); border: 1px solid var(--color-divider);
   border-radius: var(--radius-lg); padding: 2rem 1.8rem;
   transition: transform .45s var(--ease-out), box-shadow .45s var(--ease-out);
 }
@@ -333,6 +335,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 .price-card__list { margin-top: 1.4rem; display: grid; gap: .6rem; }
 .price-card__list li { display: flex; gap: .6rem; align-items: flex-start; font-size: .95rem; color: var(--color-text-muted); }
 .price-card__list li::before { content: ""; flex: none; width: 18px; height: 18px; margin-top: 3px; border-radius: 50%; background: var(--color-bg-sage) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231F5D3C' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/11px no-repeat; }
+.price-card__cta { margin-top: auto; padding-top: .9rem; }
+.price-card__cta.btn { align-self: stretch; margin-top: 1.6rem; }
+
 .pricing-note {
   margin-top: 1.6rem; font-size: .87rem; color: var(--color-text-muted);
   border-left: 3px solid var(--color-gold); padding: .3rem 0 .3rem 1rem; max-width: 70ch;
@@ -362,14 +367,33 @@ ul { margin: 0; padding: 0; list-style: none; }
 .rules-fact p { margin: 0; color: rgba(242, 239, 230, .85); }
 
 /* ---------- Galerie ---------- */
-.gallery { column-count: 2; column-gap: .8rem; }
-.gallery__item {
-  position: relative; display: block; width: 100%; margin: 0 0 .8rem; padding: 0; border: 0; background: none; cursor: zoom-in;
-  break-inside: avoid; -webkit-column-break-inside: avoid;
-  border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3;
-  box-shadow: 0 10px 30px rgba(0,0,0,.28);
+/* Pevná dlažba místo column-masonry — ten podle výšky položek nechával
+   ve sloupci prázdné místo. Rozvržení je dané, takže je vždy vyvážené. */
+.gallery {
+  display: grid; gap: .8rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 132px;
+  grid-template-areas:
+    "a a"
+    "b c"
+    "d e"
+    "f f";
 }
-.gallery__item:nth-child(1), .gallery__item:nth-child(6) { aspect-ratio: 4 / 5; }
+.gallery__item:nth-child(1) { grid-area: a; }
+.gallery__item:nth-child(2) { grid-area: b; }
+.gallery__item:nth-child(3) { grid-area: c; }
+.gallery__item:nth-child(4) { grid-area: d; }
+.gallery__item:nth-child(5) { grid-area: e; }
+.gallery__item:nth-child(6) { grid-area: f; }
+.gallery__item {
+  position: relative; display: block; width: 100%; height: 100%; margin: 0; padding: 0; border: 0;
+  background: none; cursor: zoom-in;
+  border-radius: var(--radius); overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,.28);
+  transition: transform .45s var(--ease-out), box-shadow .45s var(--ease-out);
+}
+.gallery__item:hover { transform: translateY(-4px); box-shadow: 0 18px 42px rgba(0,0,0,.38); }
+
 .gallery__item img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease-out), filter .5s; }
 .gallery__item:hover img { transform: scale(1.07); filter: brightness(1.08); }
 .gallery__item figcaption {
@@ -447,7 +471,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* BookingGrid / LaneRow / TimeSlot */
 .booking-grid-scroll { overflow-x: auto; border: 1px solid var(--color-divider); border-radius: var(--radius); background: var(--color-bg-alt); box-shadow: var(--shadow-card); }
-.booking-grid { display: grid; grid-template-columns: 96px repeat(11, minmax(76px, 1fr)); min-width: 940px; }
+.booking-grid { display: grid; grid-template-columns: 96px repeat(11, minmax(92px, 1fr)); min-width: 1108px; }
 .booking-grid__corner { position: sticky; left: 0; z-index: 3; background: var(--color-bg-alt); border-bottom: 1px solid var(--color-divider); }
 .booking-grid__hour {
   padding: .8rem .4rem; text-align: center; font-size: .78rem; font-weight: 600; color: var(--color-text-muted);
@@ -463,7 +487,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   min-height: 64px; padding: .3rem; display: flex; align-items: center; justify-content: center;
 }
 .time-slot__btn {
-  width: 100%; height: 100%; min-height: 54px; border-radius: var(--radius-sm); border: 1px solid var(--color-divider);
+  width: 100%; height: 100%; min-width: 0; min-height: 54px; overflow: hidden;
+  border-radius: var(--radius-sm); border: 1px solid var(--color-divider);
   background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); font-weight: 600; font-size: .85rem;
   cursor: pointer; display: grid; place-items: center; gap: .1rem; line-height: 1.15;
   transition: border-color .2s, background .2s, transform .18s var(--ease-out), color .2s, box-shadow .2s;
@@ -471,7 +496,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .time-slot__btn:hover:not(:disabled) { border-color: var(--color-gold); transform: translateY(-2px); box-shadow: var(--shadow-card); }
 .time-slot__btn:focus-visible { outline: 3px solid rgba(201, 162, 75, .55); outline-offset: 2px; }
 .time-slot__price { font-size: .82rem; white-space: nowrap; }
-.time-slot__note { font-size: .66rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; }
+.time-slot__note { font-size: .62rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; }
 
 .time-slot--selected .time-slot__btn { background: var(--color-green-dark); border-color: var(--color-green-dark); color: #FFF; box-shadow: var(--shadow-lift); }
 .time-slot--full .time-slot__btn { background: var(--color-bg-sage); border-color: var(--color-divider); color: var(--color-text-muted); cursor: not-allowed; }
@@ -497,6 +522,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .booking-summary__date::first-letter { text-transform: uppercase; }
 .booking-summary__empty { margin: 0; font-size: .9rem; color: var(--color-text-muted); }
 .booking-summary__lanes { display: grid; gap: .9rem; }
+.booking-summary__detail { display: grid; gap: .9rem; }
+.booking-summary__toggle { display: none; }
 .summary-lane__title { font-weight: 700; margin: 0 0 .3rem; }
 .summary-lane__row { display: flex; justify-content: space-between; gap: 1rem; font-size: .9rem; color: var(--color-text-muted); }
 .summary-lane__row b { color: var(--color-text); font-weight: 600; }
@@ -684,7 +711,14 @@ ul { margin: 0; padding: 0; list-style: none; }
   .field-grid { grid-template-columns: 1fr 1fr; }
   .bento { grid-template-columns: repeat(2, 1fr); }
   .rules { grid-template-columns: repeat(2, 1fr); }
-  .gallery { column-count: 3; }
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 168px;
+    grid-template-areas:
+      "a a b"
+      "c d b"
+      "c e f";
+  }
   .hero__scroll { display: flex; }
 }
 @media (min-width: 900px) {
@@ -733,19 +767,42 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* ---------- Doplňky ---------- */
 fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
 
-/* Mobil: sticky souhrn u spodní hrany obrazovky — kompaktní, aby nezakrýval mřížku */
+/* Mobil: sticky lišta se souhrnem u spodní hrany.
+   Drží se schválně nízká (~2 řádky) a detail se rozbaluje na klepnutí — jinak
+   by zakryla polovinu mřížky. Mřížka má pod sebou odsazení, aby se poslední
+   dráha dala vždy vyscrollovat nad lištu. */
 @media (max-width: 899px) {
+  .booking-app__main { padding-bottom: 8.5rem; }
+
   .booking-summary {
-    position: sticky; bottom: 0; z-index: 20; padding: .9rem 1.1rem 1.1rem; gap: .55rem;
+    position: sticky; bottom: 0; z-index: 20; padding: .75rem 1rem .9rem; gap: .5rem;
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     box-shadow: 0 -12px 30px rgba(15, 43, 34, .18);
   }
-  .booking-summary h3 { font-size: 1.05rem; }
+  .booking-summary h3 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  .booking-summary__toggle {
+    display: flex; align-items: center; justify-content: space-between; gap: .6rem;
+    width: 100%; padding: 0; border: 0; background: none; cursor: pointer;
+    font-size: .84rem; font-weight: 600; color: var(--color-text-muted); text-align: left;
+  }
+  .booking-summary__toggle > span {
+    min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .booking-summary__toggle svg {
+    flex: none; width: 18px; height: 18px; color: var(--color-gold-deep);
+    transition: transform .3s var(--ease-out);
+  }
+  .booking-summary__toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+
+  .booking-summary__detail { display: none; }
+  .booking-summary.is-expanded .booking-summary__detail { display: grid; gap: .6rem; }
   .booking-summary__date { font-size: .8rem; }
   .booking-summary__empty { font-size: .84rem; }
-  .booking-summary__lanes { max-height: 24vh; overflow-y: auto; }
-  .booking-summary__total { padding-top: .6rem; }
-  .booking-summary__total b { font-size: 1.5rem; }
+  .booking-summary__lanes { max-height: 30vh; overflow-y: auto; gap: .6rem; }
+  .booking-summary__total { padding-top: .55rem; }
+  .booking-summary__total b { font-size: 1.45rem; }
+  #btn-continue { min-height: 48px; }
 
   /* V rezervační sekci si spodní hranu drží souhrn — plovoucí CTA (míří na
      tutéž sekci) i lišta o ukázkovém webu by ho jen překrývaly. */
